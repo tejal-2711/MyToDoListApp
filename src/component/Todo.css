@@ -1,0 +1,42 @@
+button {
+  background-color: #04aa6d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+}
+
+.delete {
+  background-color: #1204aa;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #028a5e;
+}
+
+.todo-item {
+  background-color: rgb(255, 193, 255);
+  width: 400px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+}
+
+.todo-item.completed {
+  background-color: #e0ffe0; /* Light green background for completed tasks */
+  text-decoration: line-through;
+  border-radius: 10px;
+}
+
+.todolist {
+  align-self: center;
+}
