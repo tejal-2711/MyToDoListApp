@@ -1,5 +1,5 @@
 button {
-  background-color: #04aa6d;
+  background-color: #20706b;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -21,18 +21,18 @@ button {
 }
 
 button:hover {
-  background-color: #028a5e;
+  background-color: #5844b9;
 }
 
 .todo-item {
-  background-color: rgb(255, 193, 255);
+  background-color: #dc99ed;
   width: 400px;
   margin-bottom: 8px;
   border-radius: 10px;
 }
 
 .todo-item.completed {
-  background-color: #e0ffe0; /* Light green background for completed tasks */
+  background-color: #e0e0ff; /* Light green background for completed tasks */
   text-decoration: line-through;
   border-radius: 10px;
 }

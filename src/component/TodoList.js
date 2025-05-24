@@ -40,43 +40,67 @@ function TodoList() {
   const completedTasks = tasks.filter((task) => task.completed).length;
   const percentage = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
   const data = [
-    { title: "Completed", value: completedTasks, color: "#4caf50" },
+    { title: "Completed", value: completedTasks, color: "#29636b" },
     {
       title: "Remaining",
       value: totalTasks - completedTasks,
-      color: "#e0e0e0",
+      color: "#dd6ceb",
     },
   ];
   return (
-    <div className="todo-list">
-      {tasks.map((task) => (
-        <TodoItem
-          key={task.id}
-          task={task}
-          deleteTask={deleteTask}
-          toggleCompleted={toggleCompleted}
-        />
-      ))}
+    <div className="todo-list-parent">
+      <div className="todo-list">
+        <div className="tasks">
+          {tasks.map((task) => (
+            <TodoItem
+              key={task.id}
+              task={task}
+              deleteTask={deleteTask}
+              toggleCompleted={toggleCompleted}
+            />
+          ))}
 
-      <input value={text} onChange={(e) => setText(e.target.value)} />
-      <button onClick={() => addTask(text)}>Add</button>
-
-      <div className="taskProgression">
-        <h2>
-          Tasks Progress: {completedTasks}/{totalTasks}
-        </h2>
-        <h3>You are {percentage}% done with your tasks!</h3>
-        <PieChart
-          data={data}
-          label={({ dataEntry }) => `${Math.round(dataEntry.percentage)}%`}
-          labelStyle={{
-            fontSize: "5px",
-            fill: "#fff",
-          }}
-          labelPosition={70}
-          style={{ width: "200px", height: "200px" }}
-        />
+          <input value={text} onChange={(e) => setText(e.target.value)} />
+          <button onClick={() => addTask(text)}>Add</button>
+        </div>
+        <div className="taskProgression">
+          <h2>
+            Tasks Progress: {completedTasks}/{totalTasks}
+          </h2>
+          <h3>You are {percentage}% done with your tasks!</h3>
+          <PieChart
+            key={`${completedTasks}-${totalTasks}`}
+            data={data}
+            animate
+            animationDuration={1000} // duration in ms
+            animationEasing="ease-out"
+            label={({ dataEntry }) => `${Math.round(dataEntry.percentage)}%`}
+            labelStyle={{
+              fontSize: "5px",
+              fill: "#fff",
+            }}
+            labelPosition={70}
+            style={{ width: "200px", height: "200px" }}
+          />
+          <div className="cute-progress-container">
+            <div className="cute-progress-track">
+              <div
+                className="cute-progress-fill"
+                style={{ width: `${percentage}%` }}
+              >
+                <span className="cute-character" role="img" aria-label="cat">
+                  🐱
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <footer className="cute-footer">
+        <div className="emoji-trail">
+          🐾 🐾 🐾 Keep up the great work! 🐾 🐾 🐾
+        </div>
+      </footer>
     </div>
   );
 }
